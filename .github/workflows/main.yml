@@ -5,9 +5,9 @@ name: CI
 # Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches-ignore:
-      - 'master'
+#  push:
+#    branches-ignore:
+#      - 'master'
   pull_request:
     branches:
       - 'master'
@@ -53,6 +53,3 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
           image_name: ${{ github.repository_owner }}/ledgersmb-dev-github_actions
           image_tag: latest
-          context: primary
-          push_git_tag: ${{ github.event_name == 'push' || github.event.pull_request.merged }}
-          push_image_and_stages: ${{ github.event_name == 'push' || github.event.pull_request.merged }}
